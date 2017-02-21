@@ -16,6 +16,7 @@ class DomainTestCase(TestCase):
         domain = Domain.find_by_domain('test.domain')
         renew = Renew(domain).compute_key()
         self.assertEqual(renew._domain.privateKey, renew._key.export_private_key())
+        renew.renew()
 
 
 
