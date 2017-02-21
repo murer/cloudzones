@@ -1,3 +1,4 @@
+import unittest
 from supertest import TestCase
 from supertest import R
 from google.appengine.ext import ndb
