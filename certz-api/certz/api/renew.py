@@ -1,6 +1,8 @@
 from certz.util.keypair import KeyPair
 from certz.util import codecutil as codec
+import json
 import binascii
+import hashlib
 
 class Renew(object):
 
@@ -30,4 +32,7 @@ class Renew(object):
 
     def renew(self):
         exp, n = self._get_public_key()
-        print exp, n
+        header = { "alg": "RS256", "jwk": { "e": exp, "kty": "RSA", "n": n } }
+        accountkey_json = json.dumps(header['jwk'], sort_keys=True, separators=(',', ':'))
+        thumbprint = codec.ub64enc(hashlib.sha256(accountkey_json.encode('utf8')).digest())
+        print accountkey_json, thumbprint
