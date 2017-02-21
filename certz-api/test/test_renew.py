@@ -7,8 +7,6 @@ from certz.api.ent import Domain
 class DomainTestCase(TestCase):
 
     def test_save(self):
-        domain = Domain.find_by_domain('test.domain')
-        self.assertIsNone(domain)
         Domain(id='test.domain').put()
         domain = Domain.find_by_domain('test.domain')
         self.assertEqual('test.domain', domain.key.id())
