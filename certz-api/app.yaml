@@ -1,6 +1,7 @@
 runtime: python27
 api_version: 1
 threadsafe: yes
+module: certz
 
 handlers:
 - url: /favicon\.ico
@@ -8,7 +9,7 @@ handlers:
   upload: favicon\.ico
 
 - url: /api/.*
-  script: zonescloud.api.main.app
+  script: certz.api.main.app
 
 libraries:
 - name: webapp2

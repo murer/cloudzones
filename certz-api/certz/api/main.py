@@ -1,5 +1,5 @@
 import webapp2
-from zonescloud.util import webutil
+from certz.util import webutil
 
 class PingHandler(webutil.RequestHandler):
     def get(self):
